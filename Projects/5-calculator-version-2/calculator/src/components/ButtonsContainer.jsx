@@ -20,6 +20,7 @@ const ButtonsContainer = ({onButtonClick}) => {
     "0",
     ".",
   ];
+  let test = []
   return (
     <div className={style.buttonsContainer}>
       {buttonNames.map((buttonName) => (
