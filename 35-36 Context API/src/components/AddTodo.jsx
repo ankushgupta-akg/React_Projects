@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { IoIosAddCircle } from "react-icons/io";
-function AddTodo({ onNewItem }) {
+import { TodoItemsContext } from "../store/todo-items-store";
+import { useContext } from "react";
+function AddTodo() {
   // const [todoName, setTodoName] = useState("");
   // const [dueDate, setDueDate] = useState("");
 
@@ -17,6 +19,9 @@ function AddTodo({ onNewItem }) {
 
   const dueDateElement = useRef()
 
+  const contextObj = useContext(TodoItemsContext)
+  const addNewItem = contextObj.addNewItem
+
   const handleAddButtonClicked = (event) => {
     event.preventDefault();
     // setDueDate("");
@@ -28,7 +33,7 @@ function AddTodo({ onNewItem }) {
     const todoName = todoNameElement.current.value;
     const dueDate = dueDateElement.current.value;
 
-    onNewItem(todoName, dueDate);
+    addNewItem(todoName, dueDate);
     todoNameElement.current.value = "";
     dueDateElement.current.value="";
 
